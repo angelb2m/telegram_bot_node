@@ -1,5 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
-var ogs = require('open-graph-scraper');
+const OpenGraph = require('open-graph-scraper');
 
 // API Token Telegram
 const token = '862893233:AAEcnBmybxFy39fPxlTC3c2OFRGp5eHcVFc';
@@ -26,14 +26,14 @@ var xxx = "xxx";
 if (msg.text.toString().toLowerCase().includes(xxx)) {
   var options = {'url': 'https://bit2main.com/aceptacion-de-blockchain/'};
 
-    ogs(options)
+    OpenGraph(options)
       .then(function (result) {
         bot.sendMessage(msg.chat.id,"result")
-        bot.sendMessage(msg.chat.id,result)
+        bot.sendMessage(msg.chat.id,result.toString())
       })
       .catch(function (error) {
         bot.sendMessage(msg.chat.id,"error")
-        bot.sendMessage(msg.chat.id,error)
+        bot.sendMessage(msg.chat.id,error.toString())
       });
     bot.sendMessage(msg.chat.id, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 }
