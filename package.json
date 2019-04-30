@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/angelb2m/telegram_bot_node#readme",
   "dependencies": {
-    "node-telegram-bot-api": "^0.30.0"
+    "node-telegram-bot-api": "^0.30.0",
+    "open-graph-scraper": "^3.6.1"
   }
 }
