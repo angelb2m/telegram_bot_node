@@ -38,6 +38,6 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
         bot.sendMessage(msg.chat.id,"error")
         bot.sendMessage(msg.chat.id,error.toString())
       });
-    bot.sendMessage(msg.chat.id, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    bot.sendMessage(msg.chat.id, "ZZZZZZZZZZZZZZZZZZZZZZZZZ");
 }
 });
