@@ -1,5 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const OpenGraph = require('open-graph-scraper');
+const fs = require('fs')
 
 // API Token Telegram
 const token = '862893233:AAEcnBmybxFy39fPxlTC3c2OFRGp5eHcVFc';
@@ -29,7 +30,9 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
     OpenGraph(options)
       .then(function (result) {
         bot.sendMessage(msg.chat.id,"result")
-        bot.sendMessage(msg.chat.id,result.toString())
+        fs.writeFile('Output.txt', result.stringify(), (err) => {
+          bot.sendMessage(msg.chat.id,"error")
+          })
       })
       .catch(function (error) {
         bot.sendMessage(msg.chat.id,"error")
