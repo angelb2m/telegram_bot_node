@@ -1,6 +1,8 @@
 const TelegramBot = require('node-telegram-bot-api');
 const OpenGraph = require('open-graph-scraper');
-const fs = require('fs')
+const fs = require('fs');
+const API = "news.json";
+
 
 // API Token Telegram
 const token = '862893233:AAEcnBmybxFy39fPxlTC3c2OFRGp5eHcVFc';
@@ -23,35 +25,56 @@ if (msg.text.indexOf(robot) === 0) {
     bot.sendMessage(msg.chat.id, "Yes I'm robot but not in that way!");
 }
 
-var xxx = "xxx";
-if (msg.text.toString().toLowerCase().includes(xxx)) {
+var reset = "reset";
+if (msg.text.toString().toLowerCase().includes(reset)) {
   var options = {'url': 'https://bit2main.com/aceptacion-de-blockchain/'};
 
     OpenGraph(options)
       .then(function (result) {
         var json = JSON.stringify(result);
         var datax = "["+json+"]";
-        fs.writeFile('news.json', datax, 'utf8', (err) => {
+        fs.writeFile(API, datax, 'utf8', (err) => {
           if (err != null) {
             bot.sendMessage(msg.chat.id,"error")
           }else{
-            bot.sendMessage(msg.chat.id,"Datos escritos en API")
+            bot.sendMessage(msg.chat.id,"API Reseted")
           }
         })
       })
       .catch(function (error) {
         bot.sendMessage(msg.chat.id,error.toString())
       });
-    bot.sendMessage(msg.chat.id, "xxxxxxxxxxxx")
+    bot.sendMessage(msg.chat.id, "Ready")
 }
 
-var aaa = "aaa";
-if (msg.text.toString().toLowerCase().includes(aaa)) {
-  const API = "news.json";
-  fs.writeFile(API, data, (err) => {
-    if (err) console.log(err);
-    console.log("Successfully Written to File.");
-  });
+var xxx = "xxx";
+if (msg.text.toString().toLowerCase().includes(xxx)) {
+  var options = {'url': 'https://www.criptonoticias.com/gobierno/gobierno-colombia-invierte-usd-3-millones-centro-blockchain/'};
+
+    OpenGraph(options)
+      .then(function (result) {
+        fs.readFile(API, 'utf8', function readFileCallback(err, data){
+          if (err){
+            bot.sendMessage(msg.chat.id,"error al leer datos")
+          } else {
+          obj = JSON.parse(data); //now it an object
+          obj.table.push(result); //add some data
+          json = JSON.stringify(obj); //convert it back to json
+
+
+          fs.writeFile("news8.json", json, 'utf8', (err) => {
+            if (err != null) {
+              bot.sendMessage(msg.chat.id,"error")
+            }else{
+              bot.sendMessage(msg.chat.id,"API Reseted")
+            }
+          })
+        }})
+      })
+      .catch(function (error) {
+        bot.sendMessage(msg.chat.id,error.toString())
+      });
+      bot.sendMessage(msg.chat.id, "Comando Succesfully")
 }
 
 
