@@ -47,11 +47,25 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
 
 var aaa = "aaa";
 if (msg.text.toString().toLowerCase().includes(aaa)) {
-
-  fetch('news.json')
-    .then(response => response.text())
-    .then(text =>     bot.sendMessage(msg.chat.id, text))
-    bot.sendMessage(msg.chat.id, "aaaaaaaaaaaaaaaaaaa");
+  const API = "news.json";
+  readTextFile(API)
+  function readTextFile(file)
+  {
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", file, false);
+      rawFile.onreadystatechange = function ()
+      {
+          if(rawFile.readyState === 4)
+          {
+              if(rawFile.status === 200 || rawFile.status == 0)
+              {
+                  var allText = rawFile.responseText;
+                  bot.sendMessage(msg.chat.id, allText);
+              }
+          }
+      }
+      rawFile.send(null);
+  }
 }
 
 
