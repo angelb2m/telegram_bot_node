@@ -57,7 +57,7 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
 
         fs.readFile(API, 'utf8', function readFileCallback(err, data){
           obj = JSON.parse(data); //now it an object
-          obj.table.push(result); //add some data
+          obj.push(result); //add some data
           json = JSON.stringify(obj); //convert it back to json
           bot.sendMessage(msg.chat.id, "Second step")
 
