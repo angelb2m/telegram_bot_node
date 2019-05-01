@@ -30,7 +30,8 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
     OpenGraph(options)
       .then(function (result) {
         var json = JSON.stringify(result);
-        fs.writeFile('news.json', json, 'utf8', (err) => {
+        var array = JSON.parse(json);
+        fs.writeFile('news.json', array, 'utf8', (err) => {
           if (err != null) {
             bot.sendMessage(msg.chat.id,"error")
           }else{
