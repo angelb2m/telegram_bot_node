@@ -53,28 +53,29 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
 
     OpenGraph(options)
       .then(function (result) {
+        bot.sendMessage(msg.chat.id, "First step")
+
         fs.readFile(API, 'utf8', function readFileCallback(err, data){
-          if (err){
-            bot.sendMessage(msg.chat.id,"error al leer datos")
-          } else {
           obj = JSON.parse(data); //now it an object
           obj.table.push(result); //add some data
           json = JSON.stringify(obj); //convert it back to json
+          bot.sendMessage(msg.chat.id, "Second step")
 
 
           fs.writeFile("news8.json", json, 'utf8', (err) => {
+            bot.sendMessage(msg.chat.id, "Third step")
+
             if (err != null) {
               bot.sendMessage(msg.chat.id,"error")
             }else{
               bot.sendMessage(msg.chat.id,"API Reseted")
             }
           })
-        }})
+        })
       })
       .catch(function (error) {
         bot.sendMessage(msg.chat.id,error.toString())
       });
-      bot.sendMessage(msg.chat.id, "Comando Succesfully")
 }
 
 
