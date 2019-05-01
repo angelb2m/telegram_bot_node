@@ -47,9 +47,10 @@ if (msg.text.toString().toLowerCase().includes(reset)) {
     bot.sendMessage(msg.chat.id, "Ready")
 }
 
-var xxx = "xxx";
+var http = "http";
 if (msg.text.toString().toLowerCase().includes(xxx)) {
-  var options = {'url': 'https://www.criptonoticias.com/gobierno/gobierno-colombia-invierte-usd-3-millones-centro-blockchain/'};
+
+  var options = {'url': msg.text.toString().toLowerCase()};
 
     OpenGraph(options)
       .then(function (result) {
