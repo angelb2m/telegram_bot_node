@@ -58,11 +58,9 @@ if (msg.text.toString().toLowerCase().includes(aaa)) {
         bot.sendMessage(msg.chat.id,"Datos escritos en API")
       }
     })
-    .catch(function (error) {
-      bot.sendMessage(msg.chat.id,error.toString())
-    })
   }
  );
+ bot.sendMessage(msg.chat.id,"Por lo mio")
 }
 
 
