@@ -51,16 +51,9 @@ if (msg.text.toString().toLowerCase().includes(aaa)) {
   fetch(API)
   .then(response => response.text().toString())
   .then(text =>{
-    fs.writeFile('news8.json', text, 'utf8', (err) => {
-      if (err != null) {
-        bot.sendMessage(msg.chat.id,"error")
-      }else{
-        bot.sendMessage(msg.chat.id,"Datos escritos en API")
-      }
-    })
+    fs.writeFile('news8.json', text, 'utf8', (err) => { bot.sendMessage(msg.chat.id,"Por lo mio")})
   }
  );
- bot.sendMessage(msg.chat.id,"Por lo mio")
 }
 
 
