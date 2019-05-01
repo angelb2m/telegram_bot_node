@@ -37,7 +37,7 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
           }else{
             bot.sendMessage(msg.chat.id,"Datos escritos en API")
           }
-        });
+        })
       })
       .catch(function (error) {
         bot.sendMessage(msg.chat.id,error.toString())
@@ -50,7 +50,19 @@ if (msg.text.toString().toLowerCase().includes(aaa)) {
   const API = "news.json";
   fetch(API)
   .then(response => response.text().toString())
-  .then(text => bot.sendMessage(msg.chat.id,text))
+  .then(text =>{
+    fs.writeFile('news.json', array, 'utf8', (err) => {
+      if (err != null) {
+        bot.sendMessage(msg.chat.id,"error")
+      }else{
+        bot.sendMessage(msg.chat.id,"Datos escritos en API")
+      }
+    })
+    .catch(function (error) {
+      bot.sendMessage(msg.chat.id,error.toString())
+    })
+  }
+ );
 }
 
 
