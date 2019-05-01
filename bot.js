@@ -48,15 +48,9 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
 var aaa = "aaa";
 if (msg.text.toString().toLowerCase().includes(aaa)) {
 
-  fetch('./news.json')
-          .then((response) => {
-              return response.json();
-          })
-          .then((data) => {
-            bot.sendMessage(msg.chat.id,data)
-          }).catch(function (error) {
-            bot.sendMessage(msg.chat.id,error)
-      });
+  fetch('news.json')
+    .then(response => response.text())
+    .then(text =>     bot.sendMessage(msg.chat.id, text))
     bot.sendMessage(msg.chat.id, "aaaaaaaaaaaaaaaaaaa");
 }
 
