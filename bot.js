@@ -45,8 +45,8 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
     bot.sendMessage(msg.chat.id, "xxxxxxxxxxxx");
 }
 
-var xxx = "aaa";
-if (msg.text.toString().toLowerCase().includes(xxx)) {
+var aaa = "aaa";
+if (msg.text.toString().toLowerCase().includes(aaa)) {
 
   fetch('./news.json')
           .then((response) => {
