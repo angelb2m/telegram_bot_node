@@ -30,8 +30,8 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
     OpenGraph(options)
       .then(function (result) {
         var json = JSON.stringify(result);
-        var array = JSON.parse(json);
-        fs.writeFile('news.json', array, 'utf8', (err) => {
+        var datax = "["+json+"]";
+        fs.writeFile('news.json', datax, 'utf8', (err) => {
           if (err != null) {
             bot.sendMessage(msg.chat.id,"error")
           }else{
@@ -48,12 +48,10 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
 var aaa = "aaa";
 if (msg.text.toString().toLowerCase().includes(aaa)) {
   const API = "news.json";
-  fetch(API)
-  .then(response => response.text().toString())
-  .then(text =>{
-    fs.writeFile('news8.json', text, 'utf8', (err) => { bot.sendMessage(msg.chat.id,"Por lo mio")})
-  }
- );
+  fs.writeFile(API, data, (err) => {
+    if (err) console.log(err);
+    console.log("Successfully Written to File.");
+  });
 }
 
 
