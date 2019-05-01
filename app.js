@@ -11,6 +11,9 @@ server.get('/api/products/', (req,res,next) =>
     next();
 });
 
+server.get('/', (req, res) => {
+  res.status(200).send('Hello, API!');
+});
 server.listen(8080, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
