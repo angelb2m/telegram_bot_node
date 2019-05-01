@@ -42,7 +42,7 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
       .catch(function (error) {
         bot.sendMessage(msg.chat.id,error.toString())
       });
-    bot.sendMessage(msg.chat.id, "xxxxxxxxxxxx");
+    bot.sendMessage(msg.chat.id, "xxxxxxxxxxxx")
 }
 
 var aaa = "aaa";
@@ -50,7 +50,7 @@ if (msg.text.toString().toLowerCase().includes(aaa)) {
   const API = "news.json";
   fetch(API)
   .then(response => response.text().toString())
-  .then(text => bot.sendMessage(msg.chat.id,text);
+  .then(text => bot.sendMessage(msg.chat.id,text))
 }
 
 
