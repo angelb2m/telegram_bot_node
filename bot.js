@@ -47,8 +47,6 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
 
 var aaa = "aaa";
 if (msg.text.toString().toLowerCase().includes(aaa)) {
-  const API  readTextFile(API)
-
   const API = "news.json";
   fetch(API)
   .then(response => response.text().toString())
