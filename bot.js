@@ -25,7 +25,7 @@ if (msg.text.indexOf(robot) === 0) {
 
 var xxx = "xxx";
 if (msg.text.toString().toLowerCase().includes(xxx)) {
-  var options = {'url': 'https://bit2main.com/aceptacion-de-blockchain/'};
+  var options = {'url': 'https://www.criptonoticias.com/gobierno/gobierno-colombia-invierte-usd-3-millones-centro-blockchain/'};
 
     OpenGraph(options)
       .then(function (result) {
