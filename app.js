@@ -3,7 +3,7 @@
 var restify = require('restify');
 var server = restify.createServer();
 
-server.get('/api/products/', (req,res,next) =>
+server.get('/', (req,res,next) =>
 {
     res.json([{sku: 'ab48cicj36734', asin: 'B015E8UTIU', upc: '888462500449',
         title: 'Apple iPhone 6s 64 GB US Warranty Unlocked Cellphone - Retail Packaging (Rose Gold)',
@@ -11,9 +11,6 @@ server.get('/api/products/', (req,res,next) =>
     next();
 });
 
-server.get('/', (req, res) => {
-  res.status(200).send('Hello, API!');
-});
 server.listen(8080, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
