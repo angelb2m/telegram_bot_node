@@ -42,6 +42,6 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
       .catch(function (error) {
         bot.sendMessage(msg.chat.id,error.toString())
       });
-    bot.sendMessage(msg.chat.id, "ZZZZZZZZZZZZZZZZZZZZZZZZZ");
+    bot.sendMessage(msg.chat.id, "xxxxxxxxxxxx");
 }
 });
