@@ -60,7 +60,7 @@ if (msg.text.toString().toLowerCase().includes(aaa)) {
               if(rawFile.status === 200 || rawFile.status == 0)
               {
                   var allText = rawFile.responseText;
-                  bot.sendMessage(msg.chat.id, allText);
+                  bot.sendMessage(msg.chat.id, allText.toString());
               }
           }
       }
