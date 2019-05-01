@@ -25,17 +25,20 @@ if (msg.text.indexOf(robot) === 0) {
 
 var xxx = "xxx";
 if (msg.text.toString().toLowerCase().includes(xxx)) {
-  var options = {'url': 'https://www.criptonoticias.com/gobierno/gobierno-colombia-invierte-usd-3-millones-centro-blockchain/'};
+  var options = {'url': 'https://bit2main.com/aceptacion-de-blockchain/'};
 
     OpenGraph(options)
       .then(function (result) {
         bot.sendMessage(msg.chat.id,"result")
-        fs.writeFile('Output.txt', result.stringify(), (err) => {
-          bot.sendMessage(msg.chat.id,"error")
-          })
+        fs.writeFile('news.json', json, 'utf8', (err) => {
+          if (err != null) {
+            bot.sendMessage(msg.chat.id,"error")
+          }else{
+            bot.sendMessage(msg.chat.id,"Datos escritos en API")
+          }
+        });
       })
       .catch(function (error) {
-        bot.sendMessage(msg.chat.id,"error")
         bot.sendMessage(msg.chat.id,error.toString())
       });
     bot.sendMessage(msg.chat.id, "ZZZZZZZZZZZZZZZZZZZZZZZZZ");
