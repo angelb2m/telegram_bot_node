@@ -44,4 +44,21 @@ if (msg.text.toString().toLowerCase().includes(xxx)) {
       });
     bot.sendMessage(msg.chat.id, "xxxxxxxxxxxx");
 }
+
+var xxx = "aaa";
+if (msg.text.toString().toLowerCase().includes(xxx)) {
+
+  fetch('./news.json')
+          .then((response) => {
+              return response.json();
+          })
+          .then((data) => {
+            bot.sendMessage(msg.chat.id,data)
+          }).catch(function (error) {
+            bot.sendMessage(msg.chat.id,error)
+      });
+    bot.sendMessage(msg.chat.id, "aaaaaaaaaaaaaaaaaaa");
+}
+
+
 });
