@@ -1,18 +1,14 @@
-const restify = require('restify');
+var restify = require('restify');
 
-const server = restify.createServer({
-  name: 'appengine-restify',
-  version: '1.0.0'
-});
+function respond(req, res, next) {
+  res.send('hello ' + req.params.name);
+  next();
+}
 
-server.use(restify.acceptParser(server.acceptable));
-server.use(restify.queryParser());
-server.use(restify.bodyParser());
+var server = restify.createServer();
+server.get('/hello/:name', respond);
+server.head('/hello/:name', respond);
 
-server.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-server.listen(process.env.PORT || 8080, () => {
-  console.log(`${server.name} listening at ${server.url}`);
+server.listen(8080, function() {
+  console.log('%s listening at %s', server.name, server.url);
 });
