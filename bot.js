@@ -48,7 +48,7 @@ if (msg.text.toString().toLowerCase().includes(reset)) {
 }
 
 var http = "http";
-if (msg.text.toString().toLowerCase().includes(xxx)) {
+if (msg.text.toString().toLowerCase().includes(http)) {
 
   var options = {'url': msg.text.toString().toLowerCase()};
 
