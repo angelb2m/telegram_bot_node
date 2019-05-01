@@ -51,7 +51,7 @@ if (msg.text.toString().toLowerCase().includes(aaa)) {
   fetch(API)
   .then(response => response.text().toString())
   .then(text =>{
-    fs.writeFile('news.json', array, 'utf8', (err) => {
+    fs.writeFile('news8.json', text, 'utf8', (err) => {
       if (err != null) {
         bot.sendMessage(msg.chat.id,"error")
       }else{
