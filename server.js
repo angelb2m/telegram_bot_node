@@ -28,7 +28,7 @@ if (msg.text.toString().toLowerCase().includes(reset)) {
         var datax = "["+json+"]";
         fs.writeFile(API, datax, 'utf8', (err) => {
           if (err != null) {
-            bot.sendMessage(msg.chat.id,"error")
+            bot.sendMessage(msg.chat.id,"error 0x0003")
           }else{
             bot.sendMessage(msg.chat.id,"API Reseted")
           }
@@ -47,28 +47,22 @@ if (msg.text.toString().toLowerCase().includes(http)) {
 
     OpenGraph(options)
       .then(function (result) {
-        bot.sendMessage(msg.chat.id, "First step")
-
         fs.readFile(API, 'utf8', function readFileCallback(err, data){
           obj = JSON.parse(data); //now it an object
           obj.push(result); //add some data
           json = JSON.stringify(obj); //convert it back to json
-          bot.sendMessage(msg.chat.id, "Second step")
-
-
-          fs.writeFile("news8.json", json, 'utf8', (err) => {
-            bot.sendMessage(msg.chat.id, "Third step")
-
+          fs.writeFile(API, json, 'utf8', (err) => {
             if (err != null) {
-              bot.sendMessage(msg.chat.id,"error")
+              bot.sendMessage(msg.chat.id,"error 0x0002")
             }else{
-              bot.sendMessage(msg.chat.id,"API Reseted")
+              bot.sendMessage(msg.chat.id,"API updated")
             }
           })
         })
       })
       .catch(function (error) {
-        bot.sendMessage(msg.chat.id,error.toString())
+        bot.sendMessage(msg.chat.id,"error 0x0001")
+        bot.sendMessage(msg.chat.id,error)
       });
 }
 
