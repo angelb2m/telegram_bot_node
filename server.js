@@ -76,7 +76,13 @@ server.head('/api/news', newsList);
 
 
 function newsList(req, res, next) {
-  fs.readFile(API, (err, data) => {res.send(data)});
+
+
+  fs.readFile(API, 'utf8', (err, data) => {
+    var obj;
+    obj = JSON.parse(data);
+    res.send(obj)
+  });
   next();
 }
 
