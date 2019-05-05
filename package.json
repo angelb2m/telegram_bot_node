@@ -2,18 +2,9 @@
   "name": "nodebot",
   "version": "1.0.0",
   "description": "Telegrambot Node JS b2m Noticias",
-  "main": "bot.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/angelb2m/telegram_bot_node.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/angelb2m/telegram_bot_node/issues"
+    "start": "node server.js"
   },
   "homepage": "https://github.com/angelb2m/telegram_bot_node#readme",
   "dependencies": {
@@ -22,6 +13,23 @@
     "restify": "^8.3.1"
   },
   "engines": {
-    "node": "10.0"
-  }
+    "node": "10.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelb2m/telegram_bot_node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/angelb2m/telegram_bot_node/issues"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Angel Nunez",
+  "contributors": [
+    "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)"
+  ],
+  "license": "MIT"
 }
